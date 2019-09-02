@@ -34,7 +34,13 @@ public class A1Jedi {
 		
 		for (int i = 0; i < customers; i++) {
 			// this cycles through each customer
-
+			
+			boolean[] boughtYet = new boolean[count];
+			
+			for (int u = 0; u < count; u++) {
+				boughtYet[u] = false;
+			}
+			
 			String name = scan.next() + scan.next();
 			
 			int num = scan.nextInt();
@@ -53,8 +59,11 @@ public class A1Jedi {
 					
 					if (item.equals(items[v])) {
 						// if the item bought matches the cycled store item
-						custBought[v] ++;
 						itemBought[v] += a;
+						if (boughtYet[v] == false) {
+							custBought[v] ++;
+							boughtYet[v] = true;
+						}
 						/* increase the number of customers that bought this
 						 item by one and add the number bought to the item
 						 bought total */
